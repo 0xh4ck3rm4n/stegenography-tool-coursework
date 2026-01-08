@@ -8,4 +8,6 @@ Steganography is the process of hiding secret information within the file that l
 main.py - application entry point
 
 encode.py - Message encoder to hide the text into an image
+
+decode.py - Messgae decoder to extract the message out of the image
 ```

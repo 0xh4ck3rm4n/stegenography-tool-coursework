@@ -18,7 +18,37 @@ def pixel_modify(pixel, bits):
 
 # function to encode the message into pixel
 def encode_msg(pixels, message):
-    pass
+    message = message + "###END###"
+    binary_msg = text_to_binary(message)
+
+    # checking if msg fits in image
+    max_bytes = len(pixels) * 3
+    if len(binary_msg) > max_bytes:
+        return None
+    
+    # creating new list of pixels
+    new_pixels = []
+    msg_index = 0
+    msg_len = len(binary_msg)
+
+    for pixel in pixels:
+        r, g, b = pixels
+
+        if msg_index < msg_len:
+            r = pixel_modify(r, binary_msg[msg_index])
+            msg_index += 1
+
+        if msg_index < msg_len:
+            g = pixel_modify(g, binary_msg[msg_index])
+            msg_index += 1
+
+        if msg_index < msg_len:
+            b = pixel_modify(b, binary_msg[msg_index])
+            msg_index += 1
+
+        new_pixels.append((r, g, b))
+
+    return new_pixels
 
 # function to calculate the maximum capacity of text to be merged in an image
 def calculate_capacity(img_size):

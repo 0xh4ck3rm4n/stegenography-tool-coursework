@@ -22,3 +22,11 @@ decode.py - Messgae decoder to extract the message out of the image
 ✅ Tests all modules individually and together
 
 ✅ Validates inputs and handles errors
+
+## Requirements
+
+```
+pip install pillow
+```
+
+Python 3.6 or higher is required

@@ -9,7 +9,13 @@ main.py - application entry point
 
 encode.py - Message encoder to hide the text into an image
 
-decode.py - Messgae decoder to extract the message out of the image
+decode.py - Message decoder to extract the message out of the image
+
+img_operation.py - Image operation handler for the tool
+
+gui.py - handle graphical representation for the tool
+
+README.md - documentation for the tool
 
 ```
 

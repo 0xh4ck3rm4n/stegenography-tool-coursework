@@ -5,18 +5,15 @@ Steganography tool is used for hiding secret information within the file that lo
 ## Project Stucture
 
 ```
-main.py - application entry point
-
-encode.py - Message encoder to hide the text into an image
-
-decode.py - Message decoder to extract the message out of the image
-
-img_operation.py - Image operation handler for the tool
-
-gui.py - handle graphical representation for the tool
-
-README.md - documentation for the tool
-
+steganography-project/
+│
+├── main.py                      # Main entry point
+├── gui.py                       # GUI implementation (Tkinter)
+├── image_operations.py          # Image loading/saving operations
+├── steganography_encode.py      # Message encoding functions
+├── steganography_decode.py      # Message decoding functions
+├── test_steganography.py        # Unit tests
+└── README.md                    # This file
 ```
 
 ## Key Features

@@ -34,5 +34,12 @@ cd stegenography-tool-coursework
 ```
 pip install -r requirements.txt
 ```
-
+## RUN CODE 
+```
+python main.py
+```
+## EXPECTED RESULT 
+```
+FILE.PNG or terminal output 
+```
 Python 3.6 or higher is required

@@ -27,7 +27,7 @@ steganography-project/
 
 ## Run Locally
 
-```
+```bash
 # Clone the repository
 https://github.com/0xh4ck3rm4n/stegenography-tool-coursework.git
 cd stegenography-tool-coursework

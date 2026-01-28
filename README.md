@@ -2,6 +2,15 @@
 
 Steganography tool is used for hiding secret information within the file that looks ordinary such as document, images, videos and audio files etc. The hidden data can only extracted by authorized party.
 
+## Learning Objective
+
+## Key Features
+
+- Hides messages in image pixels
+- Clean Tkinter interface
+- Tests all modules individually and together
+- Validates inputs and handles errors
+
 ## Project Stucture
 
 ```
@@ -16,38 +25,20 @@ steganography-project/
 └── README.md                    # This file
 ```
 
-## Key Features
-
-- Hides messages in image pixels
-- Clean Tkinter interface
-- Tests all modules individually and together
-- Validates inputs and handles errors
-
-## CLONE
+## Run Locally
 
 ```
+# Clone the repository
 https://github.com/0xh4ck3rm4n/stegenography-tool-coursework.git
 cd stegenography-tool-coursework
-```
 
-## INSTALLATION
-
-### you need requirements file with dependencies
-
-```
+# You need requirements file with dependencies
 pip install -r requirements.txt
-```
 
-## RUN CODE
-
-```
+# Run code
 python main.py
-```
 
-## EXPECTED RESULT
-
-```
+# Expected Output
 FILE.PNG or terminal output
-```
 
-Python 3.6 or higher is required
+```

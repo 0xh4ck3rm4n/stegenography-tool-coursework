@@ -1,6 +1,7 @@
-import tkinter as tk
+import gui
+# main function to run the application
 def main():
-    root = tk.Tk()
+    root = gui.create_gui()
     root.mainloop()
 
 if __name__ == "__main__":

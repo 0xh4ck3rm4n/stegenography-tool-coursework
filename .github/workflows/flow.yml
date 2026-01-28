@@ -1,0 +1,5 @@
+# yml script to automate 
+  # 1. Code quality 
+  # 2. Function Testing
+  # 3. Vulnerable funciton 
+  # 4. Reslease verion ( manual commit tag * ver* ) automatically release version 

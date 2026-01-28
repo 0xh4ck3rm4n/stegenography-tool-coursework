@@ -18,18 +18,28 @@ steganography-project/
 
 ## Key Features
 
-✅ Hides messages in image pixels
+### Hides messages in image pixels
+### Clean Tkinter interface
+### Tests all modules individually and together
+### Validates inputs and handles errors
 
-✅ Clean Tkinter interface
-
-✅ Tests all modules individually and together
-
-✅ Validates inputs and handles errors
-
-## Requirements
-
+## CLONE 
 ```
-pip install pillow
+https://github.com/0xh4ck3rm4n/stegenography-tool-coursework.git
+cd stegenography-tool-coursework
 ```
 
+## INSTALLATION 
+  ### you need requirements file with dependencies
+```
+pip install -r requirements.txt
+```
+## RUN CODE 
+```
+python main.py
+```
+## EXPECTED RESULT 
+```
+FILE.PNG or terminal output 
+```
 Python 3.6 or higher is required

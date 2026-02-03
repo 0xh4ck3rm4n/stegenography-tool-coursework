@@ -6,6 +6,7 @@ def extract_lsb(pixel_value):
 
 # convert binary to text
 def binary_to_txt(binary_str):
+    text = ''
     for i in range(0, len(binary_str), 8):
         byte = binary_str[i:i+8]
         if len(byte) == 8:

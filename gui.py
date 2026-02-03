@@ -9,7 +9,7 @@ class SteganographyGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Steganography")
-        self.root.geometry("720x680")
+        self.root.geometry("720x820")
         self.root.resizable(False, False)
         self.root.configure(bg="#0f0f17")
 
@@ -28,7 +28,7 @@ class SteganographyGUI:
         self.setup_ui()
 
     def setup_ui(self):
-        main = tk.Frame(self.root, bg=self.bg, padx=40, pady=32)
+        main = tk.Frame(self.root, bg=self.bg, padx=40, pady=24)
         main.pack(fill=tk.BOTH, expand=True)
 
         tk.Label(
@@ -95,7 +95,7 @@ class SteganographyGUI:
             main,
             text=" Encode Message ",
             padx=20,
-            pady=20,
+            pady=12,
             bg=self.card_bg,
             fg=self.accent,
             font=("Helvetica", 12, "bold"),
@@ -105,7 +105,7 @@ class SteganographyGUI:
             highlightthickness=1,
             labelanchor="n"
         )
-        encode_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 20))
+        encode_frame.pack(fill=tk.X, pady=(0, 20))
 
         tk.Label(
             encode_frame,
@@ -155,7 +155,7 @@ class SteganographyGUI:
             main,
             text=" Decode Message ",
             padx=20,
-            pady=20,
+            pady=12,
             bg=self.card_bg,
             fg=self.accent,
             font=("Helvetica", 12, "bold"),
@@ -191,7 +191,6 @@ class SteganographyGUI:
             decode_frame,
             height=6,
             font=("Consolas", 11),
-            state="disabled",
             bg="#0d1117",
             fg=self.text,
             relief="flat",
@@ -199,6 +198,7 @@ class SteganographyGUI:
             padx=12,
             pady=10
         )
+        self.result_text.bind("<Key>", lambda e: "break")
         self.result_text.pack(fill=tk.BOTH, expand=True)
 
     def select_image(self):
@@ -208,8 +208,8 @@ class SteganographyGUI:
         if not path:
             return
 
-        img = img_ops.load_image(path)
-        if not img or not img_ops.validate_image(img):
+        img = img_ops.load_img(path)
+        if not img or not img_ops.img_validation(img):
             messagebox.showerror("Error", "Please select a valid RGB image.")
             return
 
@@ -239,14 +239,14 @@ class SteganographyGUI:
             messagebox.showwarning("Warning", "Please enter a message.")
             return
 
-        pixels = img_ops.get_pixel_data(self.loaded_image)
-        new_pixels = encode.encode_message(pixels, msg)
+        pixels = img_ops.get_px_data(self.loaded_image)
+        new_pixels = encode.encode_msg(pixels, msg)
 
         if new_pixels is None:
             messagebox.showerror("Error", "Message too long for this image.")
             return
 
-        new_img = img_ops.create_image_from_pixels(new_pixels, self.loaded_image.size)
+        new_img = img_ops.img_create_from_px(new_pixels, self.loaded_image.size)
 
         out_path = filedialog.asksaveasfilename(
             defaultextension=".png",
@@ -256,8 +256,10 @@ class SteganographyGUI:
         if not out_path:
             return
 
-        if img_ops.save_image(new_img, out_path):
+        if img_ops.save_img(new_img, out_path):
             messagebox.showinfo("Success", "Image saved successfully.")
+            self.loaded_image = new_img
+            self.image_path = out_path
             self.msg_entry.delete("1.0", tk.END)
         else:
             messagebox.showerror("Error", "Could not save the image.")
@@ -267,10 +269,9 @@ class SteganographyGUI:
             messagebox.showerror("Error", "No image selected.")
             return
 
-        pixels = img_ops.get_pixel_data(self.loaded_image)
-        message = decode.decode_message(pixels)
+        pixels = img_ops.get_px_data(self.loaded_image)
+        message = decode.decode_msg(pixels)
 
-        self.result_text.config(state="normal")
         self.result_text.delete("1.0", tk.END)
 
         if message:
@@ -280,12 +281,10 @@ class SteganographyGUI:
             self.result_text.insert("1.0", "(no hidden message found)")
             messagebox.showinfo("Result", "No message found in this image.")
 
-        self.result_text.config(state="disabled")
-
 def create_gui():
     root = tk.Tk()
     SteganographyGUI(root)
-    root.mainloop()
+    return root
 
 if __name__ == "__main__":
     create_gui()

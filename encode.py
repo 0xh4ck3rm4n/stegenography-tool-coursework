@@ -9,7 +9,7 @@ def text_to_binary(txt):
 
 # function to modify LSB
 def pixel_modify(pixel, bits):
-    if bits == 1:
+    if bits == '1':
         # Setting LSB to 1
         return pixel | 1
     else:
@@ -32,7 +32,7 @@ def encode_msg(pixels, message):
     msg_len = len(binary_msg)
 
     for pixel in pixels:
-        r, g, b = pixels
+        r, g, b = pixel
 
         if msg_index < msg_len:
             r = pixel_modify(r, binary_msg[msg_index])

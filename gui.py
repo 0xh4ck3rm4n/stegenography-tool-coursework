@@ -28,11 +28,9 @@ class SteganographyGUI:
         self.setup_ui()
 
     def setup_ui(self):
-        # Main container with padding
         main = tk.Frame(self.root, bg=self.bg, padx=40, pady=32)
         main.pack(fill=tk.BOTH, expand=True)
 
-        # Header
         tk.Label(
             main,
             text="Steganography",
@@ -47,9 +45,8 @@ class SteganographyGUI:
             font=("Helvetica", 11),
             bg=self.bg,
             fg=self.text_mute
-        ).pack(anchor="w", pady=(4, 24))          # FIXED: moved pady here
+        ).pack(anchor="w", pady=(4, 24))
 
-        # ── Image selection ───────────────────────────────────────
         img_frame = tk.Frame(
             main,
             bg=self.card_bg,
@@ -91,11 +88,9 @@ class SteganographyGUI:
         )
         self.select_btn.pack(side=tk.RIGHT)
 
-        # Hover effect for select button
         self.select_btn.bind("<Enter>", lambda e: self.select_btn.config(bg=self.accent_dark))
         self.select_btn.bind("<Leave>", lambda e: self.select_btn.config(bg=self.accent))
 
-        # ── Encode section ────────────────────────────────────────
         encode_frame = tk.LabelFrame(
             main,
             text=" Encode Message ",
@@ -156,7 +151,6 @@ class SteganographyGUI:
         encode_btn.bind("<Enter>", lambda e: encode_btn.config(bg="#2ea043"))
         encode_btn.bind("<Leave>", lambda e: encode_btn.config(bg=self.success))
 
-        # ── Decode section ────────────────────────────────────────
         decode_frame = tk.LabelFrame(
             main,
             text=" Decode Message ",
@@ -288,12 +282,10 @@ class SteganographyGUI:
 
         self.result_text.config(state="disabled")
 
-
 def create_gui():
     root = tk.Tk()
     SteganographyGUI(root)
     root.mainloop()
-
 
 if __name__ == "__main__":
     create_gui()

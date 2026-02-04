@@ -85,7 +85,21 @@ class TestSteganographyEncode(unittest.TestCase):
 
 # Test case for Decoding Image
 class TestSteganographyDecode(unittest.TestCase):
-    pass
+    # This function is to test LSB extraction
+    def test_extract_lsb(self):
+        pass
+    
+    # This function is to test the coversion of binary to text
+    def test_binary_to_text(self):
+        pass
+    
+    # This function test decode message with proper delimiter
+    def test_decode_msg_within_delimiter(self):
+        pass
+
+    # This function test if it is possible to decode message with no delimiter
+    def test_decode_msg_no_delimiter(self):
+        pass
 
 def run_tests():
     unittest.main()

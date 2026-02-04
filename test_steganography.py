@@ -87,19 +87,38 @@ class TestSteganographyEncode(unittest.TestCase):
 class TestSteganographyDecode(unittest.TestCase):
     # This function is to test LSB extraction
     def test_extract_lsb(self):
-        pass
-    
+        self.assertEqual(decode.extract_lsb(10), '0')# 10
+        self.assertEqual(decode.extract_lsb(11), '1')# 11
+        self.assertEqual(decode.extract_lsb(255), '1')# 255
+        self.assertEqual(decode.extract_lsb(254), '0')# 254 
+
     # This function is to test the coversion of binary to text
     def test_binary_to_text(self):
-        pass
+        binary = '01000001'
+        result = decode.binary_to_txt(binary)
+        self.assertEqual(result, "A")
+
+        binary = '0100000101000010'
+        result = decode.binary_to_txt(binary)
+        self.assertEqual(result, "AB")
     
     # This function test decode message with proper delimiter
     def test_decode_msg_within_delimiter(self):
-        pass
+        test_img = Image.new('RGB', (100, 100))
+        pixels = list(test_img.getdata())
+
+        message = "Test"
+        encoded_pixels = encode.encode_msg(pixels, message)
+
+        if encoded_pixels:
+            decoded = decode.decode_msg(encoded_pixels)
+            self.assertEqual(decoded, message)
 
     # This function test if it is possible to decode message with no delimiter
     def test_decode_msg_no_delimiter(self):
-        pass
+        pixels = [(100, 100, 100)] * 100
+        result = decode.decode_msg(pixels)
+        self.assertIsNone(result)
 
 def run_tests():
     unittest.main()

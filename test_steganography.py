@@ -34,5 +34,9 @@ class TestImageOperations(unittest.TestCase):
         self.assertEqual(pixel[0], (255, 0, 0))
 
     # This function is to check if it successfully create image from the pixel data
-    def test_create_image_from_pixel():
-        pass
+    def test_create_image_from_pixel(self):
+        pixels = [(255, 0, 0)] * 100
+        img = img_ops.img_create_from_px(pixels)
+        self.assertEqual(img.size, (10, 10))
+        self. assertEqual(img.mode, 'RGB')
+        

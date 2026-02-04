@@ -26,3 +26,11 @@ class TestImageOperations(unittest.TestCase):
         small_img = Image.new('RGB', (5, 5))
         result = img_ops.img_valid(small_img)
         self.assertFalse(result)
+
+    # This function is to check if successfully gets the data from the Image
+    def test_get_pixel_data():
+        pass
+
+    # This function is to check if it successfully create image from the pixel data
+    def test_create_image_from_pixel():
+        pass

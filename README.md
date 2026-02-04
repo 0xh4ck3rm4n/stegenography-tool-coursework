@@ -39,5 +39,5 @@ pip install -r requirements.txt
 python main.py
 ```
 
-Expected Output
-<img src="images/output.png" alt="Application GUI Interface" width='500' height='500'>
+Expected Output :
+<img src="images/output.png" alt="Application GUI Interface" width='300' height='350'>

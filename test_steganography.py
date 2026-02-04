@@ -42,7 +42,27 @@ class TestImageOperations(unittest.TestCase):
 
 # Test case for Encoding Image
 class TestSteganographyEncode(unittest.TestCase):
-    pass
+
+    # This function test if it converts text to binary
+    def test_text_to_binary(self):
+        pass
+
+    # This function test to set the LSB to 1
+    def test_modify_pixel_to_one(self):
+        pass
+
+    # This function test if the pixel can be modified and set to zero
+    def test_modify_pixel_set_to_zero(self):
+        pass
+
+    # This function test if the encode message has been successfully embedded
+    def test_encode_message_success(self):
+        pass
+    
+    # This function test if the encode message is too large to fit in an image
+    def test_encode_message_too_large(self):
+        pass
+
 
 # Test case for Decoding Image
 class TestSteganographyDecode(unittest.TestCase):

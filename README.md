@@ -49,3 +49,11 @@ python main.py
 ```
 
 <img src="images/output.png" alt="Application GUI Interface" width='300' height='350'>
+
+## Author
+
+- Gaurav Poudel - Student
+
+## License
+
+This project is licensed under the MIT License - See [License](/LICENSE) for more details

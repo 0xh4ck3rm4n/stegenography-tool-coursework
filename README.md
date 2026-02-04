@@ -18,18 +18,22 @@ Steganography tool is used for hiding secret information within the file that lo
 - Tests all modules individually and together
 - Validates inputs and handles errors
 
-## Project Stucture
+## Project Structure
 
 ```
-steganography-project/
-│
-├── main.py                      # Main entry point
-├── gui.py                       # GUI implementation (Tkinter)
-├── image_operations.py          # Image loading/saving operations
-├── encode.py                    # Message encoding functions
-├── decode.py                    # Message decoding functions
-├── test_steganography.py        # Unit tests
-└── README.md                    # This file
+.
+├── LICENSE
+├── README.md                # This file
+├── cat-icon.ico             # App Icon
+├── decode.py                # Message decoding script
+├── encode.py                # Message encoding script
+├── gui.py                   # GUI tkinter script
+├── images                   # Contains images used in documentation
+│   └── output.png
+├── img_operation.py         # Image loading/saving operations
+├── main.py                  # main file to run the app
+├── requirements.txt         # required modules
+└── test_steganography.py    # Unit Testing
 ```
 
 ## Run Locally
@@ -39,7 +43,7 @@ steganography-project/
 https://github.com/0xh4ck3rm4n/stegenography-tool-coursework.git
 cd stegenography-tool-coursework
 
-# You need requirements file with dependencies
+# You need a requirements file with dependencies
 pip install -r requirements.txt
 
 # Run code

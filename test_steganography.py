@@ -122,12 +122,28 @@ class TestSteganographyDecode(unittest.TestCase):
 
 class TestIntegration(unittest.TestCase):
     # This function test for the full encode and decode cycle
-    def test_encode_decode_cycle():
-        pass
+    def test_encode_decode_cycle(self):
+        test_img = Image.new('RGB', (100, 100), color='blue')
+        pixels = list(test_img.getdata())
+
+        message = "Secret Message"
+        encoded_pixels = encode.encode_msg(pixels, message)
+        self.assertIsNotNone(encoded_pixels)
+
+        decoded_message = decode.decode_msg(encoded_pixels)
+        self.assertEqual(decoded_message, message)
     
     # This function test for the full encode and decode cycle with the inclusion of special character
-    def test_encode_decode_cycle_with_special_character():
-        pass
+    def test_encode_decode_cycle_with_special_character(self):
+        test_img = Image.new('RGB', (100, 100), color='blue')
+        pixels = list(test_img.getdata())
+
+        message = "Hii %^&**@#$"
+        encoded_pixels = encode.encode_msg(pixels, message)
+        self.assertIsNotNone(encoded_pixels)
+
+        decoded_message = decode.decode_msg(encoded_pixels)
+        self.assertEqual(decoded_message, message)
 
 def run_tests():
     unittest.main()

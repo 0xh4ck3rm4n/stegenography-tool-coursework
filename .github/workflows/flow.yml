@@ -26,7 +26,7 @@ jobs:
       # 3. Install tools
       - name: Install dependencies
         run: |
-          pip install pylint pytest bandit pillow
+          pip install -r requirements.txt
 
       # -----------------------
       # 1. Code Quality Check

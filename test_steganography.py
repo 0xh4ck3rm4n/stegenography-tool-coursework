@@ -28,8 +28,10 @@ class TestImageOperations(unittest.TestCase):
         self.assertFalse(result)
 
     # This function is to check if successfully gets the data from the Image
-    def test_get_pixel_data():
-        pass
+    def test_get_pixel_data(self):
+        pixel = img_ops.get_px_data(self.test_image)
+        self.assertEqual(len(pixel), 10000)
+        self.assertEqual(pixel[0], (255, 0, 0))
 
     # This function is to check if it successfully create image from the pixel data
     def test_create_image_from_pixel():

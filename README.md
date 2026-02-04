@@ -4,6 +4,13 @@ Steganography tool is used for hiding secret information within the file that lo
 
 ## Learning Objective
 
+- Understanding data hiding techniques
+- Learning to write function based code
+- Identifying security use cases
+- Learning version control and packaging
+- Gaining knowledge of various data carriers
+- Understanding secure message transmission
+
 ## Key Features
 
 - Hides messages in image pixels

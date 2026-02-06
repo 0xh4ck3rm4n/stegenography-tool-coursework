@@ -1,5 +1,7 @@
 # Steganography Tool
 
+## Overview
+
 Steganography tool is used for hiding secret information within the file that looks ordinary such as document, images, videos and audio files etc. The hidden data can only extracted by authorized party.
 
 ## Learning Objective
@@ -11,7 +13,7 @@ Steganography tool is used for hiding secret information within the file that lo
 - Gaining knowledge of various data carriers
 - Understanding secure message transmission
 
-## Key Features
+## Features
 
 - Hides messages in image pixels
 - Clean Tkinter interface
@@ -49,10 +51,13 @@ pip install -r requirements.txt
 # Run code
 python main.py
 
-# Expected Output
 ```
 
+**Expected Output**
+
 <img src="images/output.png" alt="Application GUI Interface" width='300' height='350'>
+
+## Testing Features
 
 ## Author
 

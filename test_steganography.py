@@ -105,7 +105,7 @@ class TestSteganographyDecode(unittest.TestCase):
     # This function test decode message with proper delimiter
     def test_decode_msg_within_delimiter(self):
         test_img = Image.new('RGB', (100, 100))
-        pixels = list(test_img.getdata())
+        pixels = list(test_img.get_flattened_data())
 
         message = "Test"
         encoded_pixels = encode.encode_msg(pixels, message)
@@ -124,7 +124,7 @@ class TestIntegration(unittest.TestCase):
     # This function test for the full encode and decode cycle
     def test_encode_decode_cycle(self):
         test_img = Image.new('RGB', (100, 100), color='blue')
-        pixels = list(test_img.getdata())
+        pixels = list(test_img.get_flattened_data())
 
         message = "Secret Message"
         encoded_pixels = encode.encode_msg(pixels, message)
@@ -136,7 +136,7 @@ class TestIntegration(unittest.TestCase):
     # This function test for the full encode and decode cycle with the inclusion of special character
     def test_encode_decode_cycle_with_special_character(self):
         test_img = Image.new('RGB', (100, 100), color='blue')
-        pixels = list(test_img.getdata())
+        pixels = list(test_img.get_flattened_data())
 
         message = "Hii %^&**@#$"
         encoded_pixels = encode.encode_msg(pixels, message)

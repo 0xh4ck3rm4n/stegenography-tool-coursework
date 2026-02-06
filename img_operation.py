@@ -23,7 +23,7 @@ def img_validation(img):
     return True
 
 def get_px_data(img):
-    pixels = list(img.getdata())
+    pixels = list(img.get_flattened_data())
     return pixels
 
 def img_create_from_px(px, size):

@@ -61,7 +61,7 @@ python main.py
 
 ## Author
 
-- Gaurav Poudel - Student
+- **Gaurav Poudel** - Initial work and demonstration
 
 ## License
 

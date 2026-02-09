@@ -57,6 +57,16 @@ python main.py
 
 <img src="images/output.png" alt="Application GUI Interface" width='300' height='350'>
 
+## Pull and Run from GHCR
+
+```bash
+# Pull the latest image
+docker pull ghcr.io/0xh4ck3rm4n/steganography-tool:latest
+
+# Run the container
+docker run ghcr.io/0xh4ck3rm4n/steganography-tool:latest
+```
+
 ## Testing Features
 
 ## Author

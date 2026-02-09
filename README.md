@@ -58,9 +58,11 @@ python main.py
 <img src="images/output.png" alt="Application GUI Interface" width='300' height='350'>
 
 **Encode Image**
+
 <img src="images/encrypt-image.png" alt="Encode Message Function" width='300' height='350'>
 
 **Decode Image**
+
 <img src="images/decode-image.png" alt="Encode Message Function" width='300' height='350'>
 
 ## Pull and Run from GHCR

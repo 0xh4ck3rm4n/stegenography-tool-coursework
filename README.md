@@ -24,18 +24,21 @@ Steganography tool is used for hiding secret information within the file that lo
 
 ```
 .
+├── Dockerfile
 ├── LICENSE
-├── README.md                # This file
-├── cat-icon.ico             # App Icon
-├── decode.py                # Message decoding script
-├── encode.py                # Message encoding script
-├── gui.py                   # GUI tkinter script
-├── images                   # Contains images used in documentation
+├── README.md           # This file
+├── cat-icon.ico
+├── decode.py           # Message decoding script
+├── encode.py           # Message encoding script
+├── gui.py              # GUI tkinter script
+├── images
+│   ├── decode-image.png
+│   ├── encrypt-image.png
 │   └── output.png
-├── img_operation.py         # Image loading/saving operations
-├── main.py                  # main file to run the app
-├── requirements.txt         # required modules
-└── test_steganography.py    # Unit Testing
+├── img_operation.py            # Image loading/saving operations
+├── main.py                     # main file to run the app
+├── requirements.txt            # required modules
+└── test_steganography.py       # Unit Testing
 ```
 
 ## Run Locally

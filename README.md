@@ -2,12 +2,12 @@
 
 ## Overview
 
-Steganography tool is used for hiding secret information within the file that looks ordinary such as document, images, videos and audio files etc. The hidden data can only extracted by authorized party.
+In this project, a steganography tool is built using python and it's libraries. Steganography tool is used for hiding secret information within the file that looks ordinary such as document, images, videos and audio files etc. The hidden data can only be extracted by the authorized party.
 
 ## Learning Objective
 
 - Understanding data hiding techniques
-- Learning to write function based code
+- Learning to write function-based code
 - Identifying security use cases
 - Learning version control and packaging
 - Gaining knowledge of various data carriers

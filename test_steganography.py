@@ -115,7 +115,7 @@ class TestSteganographyDecode(unittest.TestCase):
         binary = '0100000101000010'
         result = decode.binary_to_txt(binary)
         self.assertEqual(result, "AB")
-    
+
     # This function test decode message with proper delimiter
     def test_decode_msg_within_delimiter(self):
         test_img = Image.new('RGB', (100, 100))
@@ -142,7 +142,7 @@ class TestSteganographyDecode(unittest.TestCase):
         message = "Secret"
         seed = 12345
         encoded_pixels = encode.encode_msg(pixels, message, seed=seed)
-        
+
         if encoded_pixels:
             decoded = decode.decode_msg(encoded_pixels, seed=seed)
             self.assertEqual(decoded, message)
@@ -170,7 +170,7 @@ class TestCrypto(unittest.TestCase):
         password = "my_password"
         encrypted = crypto.encrypt_message(message, password)
         self.assertIsNotNone(encrypted)
-        
+
         decrypted = crypto.decrypt_message(encrypted, password)
         self.assertEqual(decrypted, message)
 
@@ -179,7 +179,7 @@ class TestCrypto(unittest.TestCase):
         message = "Secret Message"
         password = "correct_password"
         encrypted = crypto.encrypt_message(message, password)
-        
+
         decrypted = crypto.decrypt_message(encrypted, "wrong_password")
         self.assertIsNone(decrypted)
 
@@ -220,7 +220,7 @@ class TestIntegration(unittest.TestCase):
 
         decoded_message = decode.decode_msg(encoded_pixels)
         self.assertEqual(decoded_message, message)
-    
+
     # This function test for the full encode and decode cycle with special character
     def test_encode_decode_cycle_with_special_character(self):
         test_img = Image.new('RGB', (100, 100), color='blue')
@@ -263,27 +263,27 @@ class TestIntegration(unittest.TestCase):
         # 1. Create message and password
         message = "Confidential Data"
         password = "secure_pass"
-        
+
         # 2. Encrypt message
         encrypted = crypto.encrypt_message(message, password)
         self.assertIsNotNone(encrypted)
-        
+
         # 3. Prepare image
         test_img = Image.new('RGB', (200, 200))
         pixels = list(test_img.get_flattened_data())
-        
+
         # 4. Encode encrypted data (as base64 to embed as text)
         import base64
         encrypted_b64 = base64.b64encode(encrypted).decode('ascii')
-        
+
         # 5. Embed in image
         encoded_pixels = encode.encode_msg(pixels, encrypted_b64)
         self.assertIsNotNone(encoded_pixels)
-        
+
         # 6. Decode from image
         decoded_b64 = decode.decode_msg(encoded_pixels)
         self.assertEqual(decoded_b64, encrypted_b64)
-        
+
         # 7. Decrypt message
         extracted_encrypted = base64.b64decode(decoded_b64)
         decrypted = crypto.decrypt_message(extracted_encrypted, password)
@@ -293,34 +293,34 @@ class TestIntegration(unittest.TestCase):
     def test_file_encode_decode(self):
         import tempfile
         import os
-        
+
         # Create temporary file with test data
         with tempfile.NamedTemporaryFile(delete=False, suffix='.txt') as tmp:
             tmp.write(b"Test file content for steganography")
             tmp_path = tmp.name
-        
+
         try:
             # Encode file
             test_img = Image.new('RGB', (500, 500))
             pixels = list(test_img.get_flattened_data())
-            
+
             encoded_pixels = encode.encode_file(pixels, tmp_path)
             self.assertIsNotNone(encoded_pixels)
-            
+
             # Decode file
             output_path = tmp_path + '.extracted'
             success = decode.decode_file(encoded_pixels, output_path)
             self.assertTrue(success)
-            
+
             # Verify content
             with open(output_path, 'rb') as f:
                 extracted_content = f.read()
-            
+
             with open(tmp_path, 'rb') as f:
                 original_content = f.read()
-            
+
             self.assertEqual(extracted_content, original_content)
-            
+
             # Cleanup
             if os.path.exists(output_path):
                 os.remove(output_path)

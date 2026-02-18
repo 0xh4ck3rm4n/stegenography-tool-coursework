@@ -24,36 +24,38 @@ In this project, a steganography tool is built using python and it's libraries. 
 
 ```
 .
-├── Dockerfile
-├── LICENSE
-├── README.md           # This file
-├── cat-icon.ico
-├── decode.py           # Message decoding script
-├── encode.py           # Message encoding script
-├── gui.py              # GUI tkinter script
-├── images
-│   ├── decode-image.png
-│   ├── encrypt-image.png
-│   └── output.png
+├── main.py                     # Entry point
+├── gui.py                      # Main Tkinter GUI (v2.0 - tabbed interface)
+├── encode.py                   # Enhanced encoding (compression, randomization)
+├── decode.py                   # Enhanced decoding (compression, randomization)
+├── crypto.py                   # NEW: Encryption/decryption utilities
+├── compression.py              # NEW: Compression utilities
 ├── img_operation.py            # Image loading/saving operations
-├── main.py                     # main file to run the app
-├── requirements.txt            # required modules
-└── test_steganography.py       # Unit Testing
+├── test_steganography.py       # Comprehensive unit tests (updated)
+├── requirements.txt            # Python dependencies
+├── README.md                   # This file
+└── images/                     # Sample images
 ```
 
-## Run Locally
+## Installation
+
+### Prerequisites
+
+- Python 3.8+
+- Tkinter (usually included with Python)
+
+### Setup
 
 ```bash
 # Clone the repository
-https://github.com/0xh4ck3rm4n/stegenography-tool-coursework.git
-cd stegenography-tool-coursework
+git clone https://github.com/0xh4ck3rm4n/steganography-tool-coursework.git
+cd steganography-tool-coursework
 
-# You need a requirements file with dependencies
+# Install dependencies
 pip install -r requirements.txt
 
-# Run code
+# Run the application
 python main.py
-
 ```
 
 **Expected Output**
@@ -67,6 +69,22 @@ python main.py
 **Decode Image**
 
 <img src="images/decode-image.png" alt="Encode Message Function" width='300' height='350'>
+
+## Running Tests
+
+```bash
+# Run all tests
+python -m pytest test_steganography.py -v
+
+# Or using unittest
+python test_steganography.py
+
+# Run specific test class
+python -m pytest test_steganography.py::TestCrypto -v
+
+# Run with coverage
+pytest test_steganography.py --cov=.
+```
 
 ## Pull and Run from GHCR
 

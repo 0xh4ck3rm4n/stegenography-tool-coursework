@@ -21,17 +21,6 @@ def binary_to_txt(binary_str):
 
 # decode message from the pixel data
 def decode_msg(img_pixel, seed=None):
-    """
-    Decode message from pixels using LSB steganography
-    
-    Args:
-        img_pixel: List of RGB pixel tuples
-        seed: Seed used for randomizing pixel selection during encoding
-    
-    Returns:
-        Decoded message string, or None if no valid message found
-    """
-    
     # Create pixel order (same as encoding)
     if seed is not None:
         random.seed(seed)
@@ -86,17 +75,6 @@ def decode_msg(img_pixel, seed=None):
 
 # decode file from pixel data
 def decode_file(img_pixel, output_path, seed=None):
-    """
-    Decode and extract file from pixels
-    
-    Args:
-        img_pixel: List of RGB pixel tuples
-        output_path: Path to save extracted file
-        seed: Seed used for randomizing pixel selection during encoding
-    
-    Returns:
-        True if successful, False otherwise
-    """
     try:
         # Create pixel order (same as encoding)
         if seed is not None:
@@ -140,16 +118,6 @@ def decode_file(img_pixel, output_path, seed=None):
 
 # to check if pixels contain message data
 def check_if_msg_exist(pixels, seed=None):
-    """
-    Check if pixels contain encoded message data
-    
-    Args:
-        pixels: List of RGB pixel tuples
-        seed: Seed for randomizing pixel selection
-    
-    Returns:
-        True if message detected, False otherwise
-    """
     try:
         if seed is not None:
             random.seed(seed)

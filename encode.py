@@ -41,19 +41,7 @@ def pixel_modify(pixel, bits):
 
 # function to encode the message into pixel with optional compression and seed
 def encode_msg(pixels, message, compress=False, seed=None):
-    """
-    Encode message into pixels using LSB steganography
-    
-    Args:
-        pixels: List of RGB pixel tuples
-        message: Text message to encode
-        compress: Whether to compress the message (default: False)
-        seed: Seed for randomizing pixel selection (default: None for sequential)
-    
-    Returns:
-        List of modified pixels, or None if message doesn't fit
-    """
-    
+
     # Add compression flag and delimiter
     if compress:
         message_bytes = compression.compress_data(message.encode())
@@ -62,12 +50,12 @@ def encode_msg(pixels, message, compress=False, seed=None):
     else:
         # Prepend 0x00 to indicate no compression
         binary_msg = '00000000' + text_to_binary(message) + '00000000' * 4
-    
+
     # checking if msg fits in image
     max_bits = len(pixels) * 3
     if len(binary_msg) > max_bits:
         return None
-    
+
     # Create randomized pixel order if seed provided
     if seed is not None:
         random.seed(seed)
@@ -75,63 +63,52 @@ def encode_msg(pixels, message, compress=False, seed=None):
         random.shuffle(pixel_indices)
     else:
         pixel_indices = list(range(len(pixels)))
-    
+
     # creating new list of pixels
     new_pixels = pixels.copy()
     msg_index = 0
     msg_len = len(binary_msg)
-    
+
     for idx in pixel_indices:
         if msg_index >= msg_len:
             break
-        
+
         pixel = pixels[idx]
         r, g, b = pixel
-        
+
         if msg_index < msg_len:
             r = pixel_modify(r, binary_msg[msg_index])
             msg_index += 1
-        
+
         if msg_index < msg_len:
             g = pixel_modify(g, binary_msg[msg_index])
             msg_index += 1
-        
+
         if msg_index < msg_len:
             b = pixel_modify(b, binary_msg[msg_index])
             msg_index += 1
-        
+
         new_pixels[idx] = (r, g, b)
-    
+
     return new_pixels
 
 
 # function to encode file data
 def encode_file(pixels, file_path, seed=None):
-    """
-    Encode file data into pixels
-    
-    Args:
-        pixels: List of RGB pixel tuples
-        file_path: Path to file to encode
-        seed: Seed for randomizing pixel selection
-    
-    Returns:
-        List of modified pixels, or None if file doesn't fit
-    """
     try:
         with open(file_path, 'rb') as f:
             file_data = f.read()
-        
+
         # Compress file data
         compressed_data = compression.compress_data(file_data)
-        
+
         # Prepend compression flag
         binary_data = '10101010' + bytes_to_binary(compressed_data) + '00000000' * 4
-        
+
         max_bits = len(pixels) * 3
         if len(binary_data) > max_bits:
             return None
-        
+
         # Create randomized pixel order if seed provided
         if seed is not None:
             random.seed(seed)
@@ -139,32 +116,32 @@ def encode_file(pixels, file_path, seed=None):
             random.shuffle(pixel_indices)
         else:
             pixel_indices = list(range(len(pixels)))
-        
+
         new_pixels = pixels.copy()
         msg_index = 0
         msg_len = len(binary_data)
-        
+
         for idx in pixel_indices:
             if msg_index >= msg_len:
                 break
-            
+
             pixel = pixels[idx]
             r, g, b = pixel
-            
+
             if msg_index < msg_len:
                 r = pixel_modify(r, binary_data[msg_index])
                 msg_index += 1
-            
+
             if msg_index < msg_len:
                 g = pixel_modify(g, binary_data[msg_index])
                 msg_index += 1
-            
+
             if msg_index < msg_len:
                 b = pixel_modify(b, binary_data[msg_index])
                 msg_index += 1
-            
+
             new_pixels[idx] = (r, g, b)
-        
+
         return new_pixels
     except Exception:
         return None

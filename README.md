@@ -68,7 +68,7 @@ python main.py
 
 **Decode Image**
 
-<img src="images/DECODE-IMAGE.png" alt="Encode Message Function" width='500' height='350'>
+<img src="images/decode-image.png" alt="Encode Message Function" width='500' height='350'>
 
 ## Running Tests
 

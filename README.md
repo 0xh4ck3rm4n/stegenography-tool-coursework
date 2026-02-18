@@ -60,15 +60,15 @@ python main.py
 
 **Expected Output**
 
-<img src="images/home-page.png" alt="Application GUI Interface" width='400' height='350'>
+<img src="images/home-page.png" alt="Application GUI Interface" width='500' height='350'>
 
 **Encode Image**
 
-<img src="images/ENCODE-IMAGE.png" alt="Encode Message Function" width='400' height='350'>
+<img src="images/ENCODE-IMAGE.png" alt="Encode Message Function" width='500' height='350'>
 
 **Decode Image**
 
-<img src="images/DECODE-IMAGE.png" alt="Encode Message Function" width='400' height='350'>
+<img src="images/DECODE-IMAGE.png" alt="Encode Message Function" width='500' height='350'>
 
 ## Running Tests
 

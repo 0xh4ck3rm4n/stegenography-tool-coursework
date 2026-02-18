@@ -3,3 +3,6 @@ __pycache__/
 build/
 dist/
 main.spec
+Steganography-Tool.spec
+cat-icon.ico
+

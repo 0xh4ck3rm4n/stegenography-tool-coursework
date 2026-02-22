@@ -1,5 +1,9 @@
 FROM python:3.11-slim
 
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
+RUN echo "Building on $BUILDPLATFORM for $TARGETPLATFORM"
+
 LABEL org.opencontainers.image.source="https://github.com/0xh4ck3rm4n/steganography-tool-coursework"
 LABEL org.opencontainers.image.description="Steganography Tool - Hide messages in images"
 LABEL org.opencontainers.image.licenses="MIT"

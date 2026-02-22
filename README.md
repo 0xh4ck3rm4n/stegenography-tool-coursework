@@ -25,16 +25,18 @@ In this project, a steganography tool is built using python and it's libraries. 
 ```
 .
 ├── main.py                     # Entry point
-├── gui.py                      # Main Tkinter GUI (v2.0 - tabbed interface)
-├── encode.py                   # Enhanced encoding (compression, randomization)
-├── decode.py                   # Enhanced decoding (compression, randomization)
-├── crypto.py                   # NEW: Encryption/decryption utilities
-├── compression.py              # NEW: Compression utilities
+├── gui.py                      # Tkinter GUI
+├── cli.py                      # CLI interface for Docker/headless use
+├── encode.py                   # Encoding
+├── decode.py                   # Decoding
+├── crypto.py                   # Encryption/decryption utilities
+├── compression.py              # Compression utilities
 ├── img_operation.py            # Image loading/saving operations
-├── test_steganography.py       # Comprehensive unit tests (updated)
+├── test_steganography.py       # Comprehensive unit tests
 ├── requirements.txt            # Python dependencies
+├── Dockerfile                  # Docker image
 ├── README.md                   # This file
-└── images/                     # Sample images
+└── images/
 ```
 
 ## Installation
@@ -90,13 +92,20 @@ pytest test_steganography.py --cov=.
 
 ```bash
 # Pull the latest image
-docker pull ghcr.io/0xh4ck3rm4n/steganography-tool:latest
+docker pull --platform linux/amd64 ghcr.io/0xh4ck3rm4n/stegenography-tool-coursework:latest
 
-# Run the container
-docker run ghcr.io/0xh4ck3rm4n/steganography-tool:latest
+# Encode a message into an image
+docker run --platform linux/amd64 \
+  -v $(pwd)/images:/app/images \
+  ghcr.io/0xh4ck3rm4n/stegenography-tool-coursework \
+  encode --image /app/images/input.png --message "your secret message" --output /app/images/output.png
+
+# Decode a message from an image
+ocker run --platform linux/amd64 \
+  -v $(pwd)/images:/app/images \
+  ghcr.io/0xh4ck3rm4n/stegenography-tool-coursework \
+  decode --image /app/images/output.png
 ```
-
-## Testing Features
 
 ## Author
 

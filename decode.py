@@ -3,11 +3,9 @@ import random
 import compression
 import encode as enc
 
-
 # extract least significant bit from pixel value
 def extract_lsb(pixel_value):
     return str(pixel_value & 1)
-
 
 # convert binary to text
 def binary_to_txt(binary_str):
@@ -17,7 +15,6 @@ def binary_to_txt(binary_str):
         if len(byte) == 8:
             text += chr(int(byte, 2))
     return text
-
 
 # decode message from the pixel data
 def decode_msg(img_pixel, seed=None):

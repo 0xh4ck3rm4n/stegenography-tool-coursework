@@ -5,7 +5,6 @@ from cryptography.hazmat.backends import default_backend
 import base64
 import os
 
-
 def derive_key_from_password(password: str, salt: bytes = None) -> tuple:
 
     if salt is None:

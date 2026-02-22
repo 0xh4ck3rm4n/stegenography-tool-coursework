@@ -2,7 +2,6 @@
 import random
 import compression
 
-
 # function to convert text to binary
 def text_to_binary(txt):
     binary = ''
@@ -10,14 +9,12 @@ def text_to_binary(txt):
         binary += format(ord(char), '08b')
     return binary
 
-
 # function to convert bytes to binary
 def bytes_to_binary(data: bytes) -> str:
     binary = ''
     for byte in data:
         binary += format(byte, '08b')
     return binary
-
 
 # function to convert binary string to bytes
 def binary_to_bytes(binary_str: str) -> bytes:
@@ -27,7 +24,6 @@ def binary_to_bytes(binary_str: str) -> bytes:
         if len(byte) == 8:
             byte_array.append(int(byte, 2))
     return bytes(byte_array)
-
 
 # function to modify LSB
 def pixel_modify(pixel, bits):

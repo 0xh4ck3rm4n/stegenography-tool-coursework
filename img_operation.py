@@ -1,10 +1,6 @@
 from PIL import Image
 
 def get_flattened_data(self):
-    """
-    Returns flattened pixel data of the image.
-    Each pixel is returned as an (R, G, B) tuple.
-    """
     return list(self.getdata())
 
 Image.Image.get_flattened_data = get_flattened_data
